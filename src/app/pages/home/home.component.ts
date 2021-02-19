@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { DataService } from '../../services/data.service';
+import { ProductService } from '../../services/product.service';
 import { Product } from '../shared/product.model';
 
 @Component({
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   originalData: any = [];
 
-  constructor(private dataService: DataService, private cartService: CartService) { }
+  constructor(private dataService: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.dataService.getData().then(data => {
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
       };
 
       // Make a deep copy of the original data to keep it immutable
-      this.products = this.originalData;
+      this.products = this.originalData.slice(0);
       /*  this.sortProducts('name'); */
     });
   }
@@ -41,15 +41,17 @@ export class HomeComponent implements OnInit {
   }
 
   updateProducts(filter) {
-    let productsSource = this.originalData.products;
+    console.log(filter);
+    let productsSource = this.originalData;
     const prevProducts = this.products;
     let filterAllData = true;
-    if ((filter.type === 'search' && filter.change === 1) || (filter.type === 'category' && filter.change === -1)) {
+    console.log(productsSource);
+    if ((filter.type === 'search' && filter.change === 1)) {
       productsSource = this.products;
       filterAllData = false;
     }
     // console.log('filtering ' + productsSource.length + ' products')
-
+    console.log(productsSource);
     this.products = productsSource.filter(product => {
       // Filter by search
       if (filterAllData || filter.type === 'search') {

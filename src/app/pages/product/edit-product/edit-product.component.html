@@ -1,0 +1,40 @@
+<div style="text-align: center;">
+    <form class="example-container" [formGroup]="form" (ngSubmit)="operate()" #productForm="ngForm">
+
+        <div [hidden]="true">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="ID" required formControlName="id">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nombre" required formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input type="number" step="0.25" matInput placeholder="Precio" required formControlName="price">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input type="number" matInput placeholder="Stock" required formControlName="stock">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select placeholder="Categoria Comics" formControlName="category">
+                <mat-option *ngFor="let c of categories" [value]="c">
+                    {{c.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="productForm.invalid">
+            <mat-icon>done</mat-icon>
+            <span>Aceptar</span>
+        </button>
+        <button mat-raised-button color="accent" routerLink='/products' type="button">
+            <mat-icon>close</mat-icon>
+            <span>Cancelar</span>
+        </button>
+    </form>
+</div>
+<br />
