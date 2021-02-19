@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product } from './shared/product.model';
+import { Product } from '../pages/shared/product.model';
 import { Subject } from 'rxjs';
 
 
@@ -18,7 +18,7 @@ export class CartService {
 
   addProductToCart(product) {
     let exists = false;
-    const parsedPrice = parseFloat(product.price.replace(/\./g, '').replace(',', '.'));
+    const parsedPrice = parseFloat(product.price.toString().replace(/\./g, '').replace(',', '.'));
     this.cartTotal += parsedPrice;
     // Search this product on the cart and increment the quantity
     this.products = this.products.map(_product => {

@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { CartService } from '../cart.service';
+import { CartService } from '../../services/cart.service';
 
 const OFFSET_HEIGHT = 170;
 const PRODUCT_HEIGHT = 48;

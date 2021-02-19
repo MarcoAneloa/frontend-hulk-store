@@ -12,8 +12,8 @@ import { SearchBarComponent } from './pages/search-bar/search-bar.component';
 import { ShowcaseComponent } from './pages/showcase/showcase.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ProductThumbnailComponent } from './pages/product-thumbnail/product-thumbnail.component';
-import { CartService } from './pages/cart.service';
-import { DataService } from './pages/data.service';
+import { CartService } from './services/cart.service';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [

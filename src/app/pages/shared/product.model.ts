@@ -1,10 +1,12 @@
+import { Category } from "./category.model";
+
 export class Product {
   id: number;
   name: string;
-  price: string;
-  available: boolean;
-  best_seller: boolean;
-  categories: number[];
-  img: string;
-  description: string;
+  price: number;
+  stock: number;
+  description:string;
+  img:string;
+  bestseller:boolean;
+  category: Category;
 }

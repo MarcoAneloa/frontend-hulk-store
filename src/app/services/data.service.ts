@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from './../../environments/environment';
 
-import { DATA } from './mock-data';
+import { DATA } from '../pages/mock-data';
 import { Observable } from 'rxjs';
+import { Product } from '../pages/shared/product.model';
 
 @Injectable()
 export class DataService {
 
+  url: string = `${environment.HOST}/products`;
+
   constructor(private http: HttpClient) { }
 
   getData(): Promise<any> {
-    return Promise.resolve(DATA);
+    return this.http.get<Product[]>(this.url).toPromise();
   }
 
   getRemoteData(url): Observable<any> {

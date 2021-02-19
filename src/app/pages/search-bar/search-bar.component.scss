@@ -35,13 +35,13 @@
   margin: 0 auto;
   height: 35px;
   border-radius: 20px;
-  border: none;
+  border: 1px solid #5D4EF0;
   padding-left: 20px;
   box-shadow: 0 3px 14px rgba(25, 25, 25, 0.05);
   font-weight: 500;
   position: relative;
   left: -33px;
-  color: #999999;
+  color: #868585;
   @include transition-fade-circ(0.4s);
   &:focus{
     box-shadow: 0 4px 11px rgba(93, 78, 240, 0.09);
@@ -66,18 +66,18 @@ svg.animate-plop{
 }
 
 ::-webkit-input-placeholder {
-  color: #cccccc;
+  color: #9c9c9c;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #cccccc;
+  color: #9c9c9c;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #cccccc
+  color: #9c9c9c;
 }
 :-ms-input-placeholder {
-   color: #cccccc;
+  color: #9c9c9c;
 }
 
 svg{
